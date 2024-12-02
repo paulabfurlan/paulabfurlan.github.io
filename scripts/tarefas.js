@@ -57,14 +57,13 @@ fetch(apiTarefas, {
     return resposta.json();
   })
   .then(function (data) {
+    let userTasks = [];
     data.forEach(function (task) {
-    /*let task = {
-      id: 1,
-      createdAt: "16/09/2024",
-      description: "Tarefa de Teste",
-      completed: false
-    };*/
+      if(task.user.id == sessionStorage.getItem("userId"))
+        userTasks.push(task);
+    });
 
+    userTasks.forEach(function (task) {
       let testIni = document.getElementsByClassName("container");
       if (testIni[0].id == "skeleton") {
         testIni[0].innerHTML = "";
