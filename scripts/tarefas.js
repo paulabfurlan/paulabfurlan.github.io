@@ -97,24 +97,19 @@ fetch(apiTarefas, {
       p.innerText = task.description;
       div2.appendChild(p);
 
+      div3.classList.add("timestamps");
       p2.classList.add("timestamp");
       p2.innerText = "Created in " + task.createdAt;
+      div3.appendChild(p2);
 
       if ((task.finishedAt != null) && (task.completed == true))
       {
-        div3.classList.add("timestamps");
         p3.classList.add("timestamp");
         p3.innerText = "Finished at " + task.finishedAt;
 
-        div3.appendChild(p2);
         div3.appendChild(p3);
-
-        div2.appendChild(div3);
       }
-      else
-      {
-        div2.appendChild(p2);
-      }
+      div2.appendChild(div3);
 
       liTarefas.appendChild(div2);
 	  
