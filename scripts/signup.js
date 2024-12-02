@@ -13,8 +13,11 @@ let erroRepSenha = document.getElementById("erroRepSenha");
 
 let erroCampos = [true, true, true, true, true];
 
-// URL da API para Logar
-const apiCadastro = "https://ctd-todo-api.herokuapp.com/v1/users";
+// API URLs to register the new user
+const apiCadastro = "https://app-todoapp-southbr-dev-001-dxfbhwbufagvdcez.brazilsouth-01.azurewebsites.net/api/v1/Auth/Register";
+//const apiCadastro = "https://localhost:7042/api/v1/Auth/Register";
+const apiUsuario = "https://app-todoapp-southbr-dev-001-dxfbhwbufagvdcez.brazilsouth-01.azurewebsites.net/api/v1/Users";
+//const apiCadastro = "https://localhost:7042/api/v1/Users";
 
 txtNome.addEventListener("keyup", function () {
   let erros = true;
@@ -22,10 +25,10 @@ txtNome.addEventListener("keyup", function () {
 
   if (txtNome.value === "") {
     if (!txtNome.classList.contains("erro")) txtNome.classList.add("erro");
-    erroNome.innerText = "Campo obrigatório!!";
+    erroNome.innerText = "Mandatory field!!";
   } else if (txtNome.value.length === 1) {
     if (!txtNome.classList.contains("erro")) txtNome.classList.add("erro");
-    erroNome.innerText = "O nome precisa ter mais de uma letra!!";
+    erroNome.innerText = "The name must have at least two letters.";
   } else {
     txtNome.classList.remove("erro");
     erroNome.innerText = "";
@@ -48,11 +51,11 @@ txtSobrenome.addEventListener("keyup", function () {
   if (txtSobrenome.value == "") {
     if (!txtSobrenome.classList.contains("erro"))
       txtSobrenome.classList.add("erro");
-    erroSobrenome.innerText = "Campo obrigatório!!";
+    erroSobrenome.innerText = "Mandatory field!!";
   } else if (txtSobrenome.value.length == 1) {
     if (!txtSobrenome.classList.contains("erro"))
       txtSobrenome.classList.add("erro");
-    erroSobrenome.innerText = "O sobrenome precisa ter mais de uma letra!!";
+    erroSobrenome.innerText = "The last name must have at least two letters.";
   } else {
     txtSobrenome.classList.remove("erro");
     erroSobrenome.innerText = "";
@@ -74,10 +77,10 @@ txtEmail.addEventListener("keyup", function () {
 
   if (txtEmail.value == "") {
     if (!txtEmail.classList.contains("erro")) txtEmail.classList.add("erro");
-    erroEmail.innerText = "Campo obrigatório!!";
+    erroEmail.innerText = "Mandatory field!!";
   } else if (!(txtEmail.value.includes("@") && txtEmail.value.includes("."))) {
     if (!txtEmail.classList.contains("erro")) txtEmail.classList.add("erro");
-    erroEmail.innerText = "O e-mail precisa ser válido";
+    erroEmail.innerText = "The e-mail address needs to be valid.";
   } else {
     txtEmail.classList.remove("erro");
     erroEmail.innerText = "";
@@ -99,10 +102,10 @@ txtSenha.addEventListener("keyup", function () {
 
   if (txtSenha.value == "") {
     if (!txtSenha.classList.contains("erro")) txtSenha.classList.add("erro");
-    erroSenha.innerText = "Campo obrigatório!!";
+    erroSenha.innerText = "Mandatory field!!";
   } else if (txtSenha.value.length < 6) {
     if (!txtSenha.classList.contains("erro")) txtSenha.classList.add("erro");
-    erroSenha.innerText = "A senha precisa conter pelo menos 6 caracteres";
+    erroSenha.innerText = "The password must contain a minimum of 6 characters.";
   } else {
     txtSenha.classList.remove("erro");
     erroSenha.innerText = "";
@@ -125,11 +128,11 @@ txtRepSenha.addEventListener("keyup", function () {
   if (txtRepSenha.value == "") {
     if (!txtRepSenha.classList.contains("erro"))
       txtRepSenha.classList.add("erro");
-    erroRepSenha.innerText = "Campo obrigatório!!";
+    erroRepSenha.innerText = "Mandatory field!!";
   } else if (txtRepSenha.value != txtSenha.value) {
     if (!txtRepSenha.classList.contains("erro"))
       txtRepSenha.classList.add("erro");
-    erroRepSenha.innerText = "A senha precisa ser igual à anterior";
+    erroRepSenha.innerText = "The password here needs to be the same as above.";
   } else {
     txtRepSenha.classList.remove("erro");
     erroRepSenha.innerText = "";
@@ -150,29 +153,47 @@ btnCriar.addEventListener("click", function (event) {
 
   if (!btnCriar.disabled) {
     let cadastro = {
-      firstName: txtNome.value,
+      username: txtEmail.value,
+      password: txtSenha.value,
+      roles: ["User", "Adm"]
+    };
+    let usuario = {
+      name: txtNome.value,
       lastName: txtSobrenome.value,
-      email: txtEmail.value,
-      password: txtSenha.value
+      email: txtEmail.value
     };
 
     fetch(apiCadastro, {
       method: "POST",
       headers: {
-        "Content-type": "application/json"
+        "Content-type": "application/json",
+        'Access-Control-Allow-Origin': '*'
       },
       body: JSON.stringify(cadastro)
     })
-      .then(function (resposta) {
-        return resposta.json();
-      })
-      .then(function (data) {
-        console.log(data);
-        if (data.jwt) window.location.href = "index.html";
-        else alert("Erro na criação do novo usuário!");
-      })
-      .catch(function (erro) {
-        console.log(erro);
-      });
+    .then(function (resposta) {
+      if(resposta.ok)
+      {
+        fetch(apiUsuario, {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+            'Access-Control-Allow-Origin': '*'
+          },
+          body: JSON.stringify(usuario)
+        })
+        .then(function (resposta2) {
+          if(resposta2.ok)
+            window.location.href = "index.html";
+          else
+            alert("Error while creating the new User!");
+        })
+        .catch(function (erro) {
+          console.log(erro);
+        });
+      }
+      else
+        alert("Error while creating the new User!");
+    });
   }
 });
