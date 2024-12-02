@@ -26,17 +26,30 @@ fetch(apiGetMe, {
     return resposta.json();
   })
   .then(function (data) {
+    let foundUser = false;
     data.forEach(function (user) {
       if(user.email == sessionStorage.getItem("email"))
       {
         sessionStorage.setItem("userId", user.id);
         if (user.name)
           nomeUsu.innerText = user.name + " " + user.lastName;
+        foundUser = true;
       }
     });
+    if(!foundUser)
+    {
+      alert("We ran into some problem, please login again");
+      sessionStorage.removeItem("jwt");
+      sessionStorage.removeItem("email");
+      window.location.href = "index.html";
+    }
   })
   .catch(function (erro) {
     console.log(erro);
+    alert("We ran into some problem, please login again");
+    sessionStorage.removeItem("jwt");
+    sessionStorage.removeItem("email");
+    window.location.href = "index.html";
   });
 
 // Botao de fechar sessao
