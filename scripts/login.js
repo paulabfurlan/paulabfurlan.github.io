@@ -7,8 +7,8 @@ let loader = document.getElementById("loader");
 let body = document.getElementsByTagName("body")[0];
 
 // API Login URLs
-const apiLogin = "https://app-todoapp-southbr-dev-002-buf5ape8h4eqc6fh.brazilsouth-01.azurewebsites.net/api/v1/Auth/Login";
-//const apiLogin = "https://localhost:7042/api/v1/Auth/Login";
+//const apiLogin = "https://app-todoapp-southbr-dev-002-buf5ape8h4eqc6fh.brazilsouth-01.azurewebsites.net/api/v1/Auth/Login";
+const apiLogin = "https://localhost:7042/api/v1/Auth/Login";
 
 txtEmail.value = "";
 txtSenha.value = "";
@@ -66,12 +66,13 @@ btnAcessar.addEventListener("click", function (event) {
     fetch(apiLogin, {
       method: "POST",
       headers: {
-        "Content-type": "application/json",
-        'Access-Control-Allow-Origin': '*'
+        "Content-type": "application/json"
       },
-      body: JSON.stringify(login)
+      body: JSON.stringify(login),
+      mode: "no-cors"
     })
       .then(function (resposta) {
+        console.log(resposta);
         return resposta.json();
       })
       .then(function (data) {
