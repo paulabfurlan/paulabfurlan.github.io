@@ -66,10 +66,10 @@ btnAcessar.addEventListener("click", function (event) {
     fetch(apiLogin, {
       method: "POST",
       headers: {
-        "Content-type": "application/json"
+        "Content-type": "application/json",
+        'Access-Control-Allow-Origin': '*'
       },
-      body: JSON.stringify(login),
-      mode: "cors"
+      body: JSON.stringify(login)
     })
       .then(function (resposta) {
         return resposta.json();
