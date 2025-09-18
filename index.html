@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To-Do App</title>
+    <title>PPF Game</title>
 
     <!-- ---------------- estilos compartilhados entre login e signup ---------------- -->
     <link rel="stylesheet" href="styles/acesso.css" />
@@ -13,35 +13,31 @@
   <div id="loader"></div> 
 
   <body>
-    <div class="left">
-      <img src="assets/pessoa-login.png" alt="" />
-    </div>
-
     <div class="right">
       <form>
         <div class="form-header">
-          <p>To-Do App</p>
+          <p>PPF Game</p>
         </div>
-        <h1>Access</h1>
 
-        <label>
-          E-mail:
-          <input id="txtEmail" type="text" required />
-        </label>
-        <small id="erroEmail"></small>
-        <label>
-          Password:
-          <input id="txtSenha" type="password" required />
-        </label>
-        <small id="erroSenha"></small>
+        <div class="form-select">
+            <label for="grupos">Escolha um grupo para jogar:</label>
 
-        <button type="submit" id="btnAcessar">Login</button>
+            <select name="grupos" id="grupos">
+              <option value="1">Grupo 1</option>
+              <option value="2">Grupo 2</option>
+              <option value="3">Grupo 3</option>
+              <option value="4">Grupo 4</option>
+            </select> 
+        </div>
+
+        <h1 id="txtGrupo">Grupo 1</h1>
+
+        <h2 id="txtCorpo">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas nulla tempora obcaecati animi, distinctio earum deserunt dicta mollitia quae dolores aliquid laborum aperiam magnam odit? Atque debitis obcaecati tempora doloribus!</h2>
+
+        <button type="button" id="btnJogar">Jogar</button>
       </form>
-      <div class="ingressar">
-        <a href="signup.html">Don't have an account yet? Create one here</a>
-      </div>
     </div>
     <!-- ---------------------- lógica aplicada no login ----------------------- -->
-    <script src="scripts/login.js"></script>
+    <script src="scripts/inicio.js"></script>
   </body>
 </html>
