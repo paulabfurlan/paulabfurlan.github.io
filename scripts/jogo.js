@@ -155,9 +155,9 @@ function pegaItem(estado, escolhaEstado0, escolhaEstado1, escolhaEstado2) {
             "A Paula conseguiu terminar o relatório já era 17:55. Quando ela falou para a chefa dela que tinha uma prova 19:00 e teria que correr, a chefa dela falou para ela que numa próxima elas poderiam ter negociado para ela sair mais cedo. A Paula então achou melhor pegar um Uber Moto para chegar na prova a tempo. No dia seguinte, a chefa elogiou muito o relatório da Paula e sua dedicação e resolveu reembolsar o valor do Uber Moto.",
             "A Paula correu para a faculdade, porém nesse dia tinha chovido e até por isso caiu a energia. Com isso o trânsito estava bem pior do que o normal. A Paula pegou dois ônibus lotados e acabou se atrasando muito para a prova. Além disso, a chefa descobriu que o relatório não foi entregue da pior maneira possível, pois o Bolsa Família de todos os alunos ficou suspenso por 15 dias, já que dependia desse relatório ser enviado no tempo certo. Os pais queriam sangue nos dias seguintes."
         ]
-    };
+    }; 
 
-/*    let grupos = {
+    /*let grupos = {
         niveis:
         [
             {
@@ -218,19 +218,6 @@ function pegaItem(estado, escolhaEstado0, escolhaEstado1, escolhaEstado2) {
         ]
     }; */
 
-
-    let escolhaAnterior, escolhaAtual;
-    if (estado == 1)
-    {
-        escolhaAnterior = 0;
-        escolhaAtual = escolhaEstado0;
-    }
-    else if (estado == 2)
-    {
-        escolhaAnterior = escolhaEstado0;
-        escolhaAtual = escolhaEstado1;
-    }
-
     if (estado == 0)
     {
         return [
@@ -239,10 +226,19 @@ function pegaItem(estado, escolhaEstado0, escolhaEstado1, escolhaEstado2) {
             grupos.niveis[estado].escolha2[estado]
         ]
     }
-    else if ((estado == 1) || (estado == 2)) 
+    else if (estado == 1)
     {
-        let pos = ((escolhaAnterior - 1) * (estado - 1)) + ((escolhaAtual - 1) * estado);
-        console.log("pos1e2: " + pos);
+        let pos = escolhaEstado0 - 1;
+
+        return [
+            grupos.niveis[estado].situacao[pos],
+            grupos.niveis[estado].escolha1[pos],
+            grupos.niveis[estado].escolha2[pos]
+        ]
+    }
+    else if (estado == 2)
+    {
+        let pos = ((escolhaEstado0 - 1) * 2) + (escolhaEstado1 - 1);
 
         return [
             grupos.niveis[estado].situacao[pos],
@@ -252,11 +248,8 @@ function pegaItem(estado, escolhaEstado0, escolhaEstado1, escolhaEstado2) {
     }
     else if (estado == 3)
     {
-        let pos = ((escolhaEstado1 - 1) * 2) + (escolhaEstado2 - 1);
+        let pos = ((escolhaEstado0 - 1) * 4) + ((escolhaEstado1 - 1) * 2) + (escolhaEstado2 - 1);
         
-        if (escolhaEstado0 == 2)
-            pos = pos + 4;
-
         console.log("pos3: " + pos);
 
         return [
