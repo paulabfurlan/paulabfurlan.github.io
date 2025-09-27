@@ -34,7 +34,7 @@ button {
   z-index: 100;
   margin-left: calc(50vw - 5em);
   margin-top: calc(50vh - 5em);
-  visibility: hidden;
+  visibility: visible;
 }
 
 @keyframes spin {

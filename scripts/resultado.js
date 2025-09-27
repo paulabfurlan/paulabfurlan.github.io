@@ -18,9 +18,11 @@ window.onload = () => {
 
         let estado = sessionStorage.getItem("estado");
         let dados = sessionStorage.getItem("resultado");
+        let grupo = sessionStorage.getItem("grupo");
         
         console.log("OnLoad: " + estado);
         console.log(dados);
+        console.log("Grupo: " + grupo);
         if (estado == 3)
             txtCorpo.innerText = dados;
 

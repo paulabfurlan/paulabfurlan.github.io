@@ -1,27 +1,31 @@
 let cbGrupos = document.getElementById("grupos");
 let txtGrupo = document.getElementById("txtGrupo");
 let btnJogar = document.getElementById("btnJogar");
-let txtCorpo = document.getElementById("txtCorpo");
+let txtCorpo = document.getElementById("txtCorpo1");
+let loader = document.getElementById("loader");
+let body = document.getElementsByTagName("body")[0];
+let idForm = document.getElementById("idForm");
 
 window.onload = () => {
   txtGrupo.innerText = "Grupo 1";
-  txtCorpo.innerText = "Texto 1";
+  txtCorpo.innerText = "Será que o Grupo 1 está preparado para o desafio?";
   cbGrupos.value = "1";
+  sessionStorage.setItem("grupo", 1);
+
+  loader.style.visibility = "hidden";
+  body.style.opacity = "1";
+  idForm.style.visibility = "visible"
 };
 
 cbGrupos.addEventListener("click", function (event) {
   let grupos = {
     nomes: [
       "Grupo 1",
-      "Grupo 2",
-      "Grupo 3",
-      "Grupo 4"
+      "Grupo 2"
     ],
     textos: [
-      "Texto 1",
-      "Texto 2",
-      "Texto 3",
-      "Texto 4"
+      "Será que o Grupo 1 está preparado para o desafio?",
+      "Será que o Grupo 2 está preparado para o desafio?"
     ]
   }
   txtGrupo.innerText = grupos.nomes[cbGrupos.value - 1];
