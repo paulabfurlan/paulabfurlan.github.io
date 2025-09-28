@@ -21,11 +21,13 @@ cbGrupos.addEventListener("click", function (event) {
   let grupos = {
     nomes: [
       "Grupo 1",
-      "Grupo 2"
+      "Grupo 2",
+      "Grupo 3"
     ],
     textos: [
       "Será que o Grupo 1 está preparado para o desafio?",
-      "Será que o Grupo 2 está preparado para o desafio?"
+      "Será que o Grupo 2 está preparado para o desafio?",
+      "Será que o Grupo 3 está preparado para o desafio?"
     ]
   }
   txtGrupo.innerText = grupos.nomes[cbGrupos.value - 1];

@@ -220,6 +220,66 @@ function pegaItem(estado, grupo, escolhaEstado0, escolhaEstado1, escolhaEstado2)
                 "Graza Deus não teve  mais cortes!! A Camila conseguiu concluir o Mestrado naquele esquema de acampar no laboratório, mas pelo menos toda essa dedicação não foi ignorada. Ela passou no Doutorado em primeiro lugar e acabou recebendo uma bolsa especial, que tem um valor maior que as outras. A primeira coisa que a Camila fez ao receber a primeira bolsa foi comprar seu computador parceladinho em 24 vezes.",
                 "Foi sofrido foi, foi chorado foi, mas a Camila conseguiu voltar ao Mestrado com o computador e muita vontade de concluir aquilo que ela tanto queria. Esse deve ter sido o Mestrado mais longo da história, mas pelo menos a Camila o concluiu com louvor. Ela então passou em primeiro lugar no Doutorado e conseguiu uma bolsa especial, que tem um valor maior do que as outras. Com isso ela pode ter um pouco mais de tranquilidade e conseguiu até fazer uma reserva de emergência durante o Doutorado."
             ]
+        },
+        {
+            niveis:
+            [
+                {
+                    situacao: [
+                        "Lucas é um jovem universitário que também iniciou seu próprio negócio de marketing digital. Trabalhar e estudar é sempre desafiador pois é preciso equilibrar as duas coisas e tem dias que isso parece quase impossível. Numa semana difícil, no mesmo dia ele precisa entregar um trabalho da faculdade mas também precisa apresentar uma proposta para um cliente. O que ele deve fazer?"
+                    ],
+                    escolha1: [
+                        "Priorizar a faculdade e dedicar todo o tempo para conseguir terminar o trabalho e entregar no prazo"
+                    ],
+                    escolha2: [
+                        "Priorizar o cliente e deixar o trabalho acadêmico em segundo plano"
+                    ]
+                },
+                {
+                    situacao: [
+                        "O Lucas conseguiu fazer um ótimo trabalho e entregá-lo no prazo, o que lhe rendeu aprovação na disciplina. Porém, como ele não conseguiu fazer a proposta para o cliente no tempo prometido, o cliente resolveu não fechar com ele, o que faz ele ficar apertado de grana naquele mês. Por sorte, ele foi convidado para um evento de networking de empreendedores na semana seguinte. Ele se prepara bastante, mas acaba descobrindo que terá prova na faculdade bem no horário do evento. O que ele deve fazer?",
+                        "O Lucas acaba reprovando na disciplina pois não consegue atingir a nota mínima. Isso faz com que ele atrase em um semestre sua formação. No entanto, o cliente fica bastante feliz com a proposta e fecha um contrato com ele e vira seu cliente fixo. Na semana seguinte, o Lucas é convidado para um evento de networking de empreendedores, mas no mesmo dia ele terá uma prova importante na faculdade. O que ele deve fazer?"
+                    ],
+                    escolha1: [
+                        "Ir ao evento de networking e perder a prova.",
+                        "Ir ao evento de networking e perder a prova."
+                    ],
+                    escolha2: [
+                        "Fazer a prova e perder o evento de networking",
+                        "Fazer a prova e perder o evento de networking"
+                    ]
+                },
+                {
+                    situacao: [
+                        "No evento de networking, o Lucas se sobressai e acaba ganhando contatos valiosos, porém ele perde a prova e acaba ficando de recuperação na disciplina. Um dos contatos que ele ganhou acaba fechando um trabalho com Lucas, o que faz ele conseguir ficar bem financeiramente nos próximos meses. Quando já está perto de se formar, o Lucas já tem clientes fixos e está indo bem nos negócios, e surge a oportunidade de expandir o negócio para outra cidade, porém ele teria que trancar a faculdade por um semestre. O que ele deve fazer?",
+                        "O Lucas consegue uma boa nota na prova e passa na disciplina sem ter que fazer recuperação. Ele acaba perdendo o evento de networking e passa algumas dificuldades nos próximos meses, pois ele precisa de mais clientes para conseguir se manter. Terá um grande evento de networking em São Paulo e é a chance de Lucas fazer mais contatos, porém ele está meio sem grana, o que ele deve fazer?",
+                        "O Lucas pensou assim: Já me lasquei em uma disciplina, mais uma não vai fazer tanta diferença no fim das contas haha. Ele vai ao evento e consegue contatos valiosos e mais um cliente fixo. O que ele não sabia era que essa disciplina que ele perdeu, era uma disciplina que puxava outra da faculdade, o que faz ele perder não somente um semestre, mas um ano inteiro da faculdade. Quando Lucas já está bem perto de se formar e já tem ótimos clientes fixos, ele recebe uma proposta de expansão do negócio para outra cidade, mas para isso ele terá que trancar um semestre da faculdade. O que ele deve fazer?",
+                        "O Lucas consegue uma boa nota na prova e passa na disciplina sem ter que fazer recuperação. Ele acaba perdendo o evento de networking e passa algumas dificuldades nos próximos meses, pois ele precisa de mais clientes para conseguir se manter. Terá um grande evento de networking em São Paulo e é a chance de Lucas fazer mais contatos, porém ele está meio sem grana, o que ele deve fazer?"
+                    ],
+                    escolha1: [
+                        "Trancar a faculdade por um semestre e ir para outra cidade expandir o negócio.",
+                        "Comprar tudo no cartão e parcelar ao infinito.",
+                        "Trancar a faculdade por um semestre e ir para outra cidade expandir o negócio.",
+                        "Comprar tudo no cartão e parcelar ao infinito."
+                    ],
+                    escolha2: [
+                        "Manter o foco na faculdade, já que falta tão pouco.",
+                        "Deixar passar essa oportunidade e se manter apertado até conseguir outra mais perto.",
+                        "Manter o foco na faculdade, já que falta tão pouco.",
+                        "Deixar passar essa oportunidade e se manter apertado até conseguir outra mais perto."
+                    ]
+                },
+            ],
+            resultado: [
+                "Ele consegue aumentar bastante a lucratividade de sua empresa, porém acaba ficando mais tempo do que o planejado e acaba tendo que trancar mais um semestre na faculdade. Após um ano, ele consegue retornar à faculdade para finalmente concluir o curso e obter seu tão sonhado diploma.",
+                "O Lucas dá o gás e consegue se formar e obter seu tão sonhado diploma. Porém ele perde a oportunidade de expandir o negócio e perde uma parceria valiosa. Ele continua com seu negócio com seus clientes regulares e um ano depois, graças ao seu diploma, ele consegue ganhar uma proposta muito boa de um cliente que o escolheu devido à sua ótima formação acadêmica. Ele então consegue expandir seu negócio para outras duas cidades.",
+                "O Lucas vai para o evento em São Paulo e consegue contatos valiosos. Um desses contatos fica feliz por Lucas estar na faculdade de Marketing e resolve fechar um grande contrato com ele, pois confia no seu conhecimento para fazer um ótimo trabalho. O Lucas consegue então pagar o seu cartão e ficar bem financeiramente.",
+                "O Lucas continua com seus clientes fixos e mantendo o foco na faculdade até que consegue se formar com louvor. Após formado, ele é convidado para um evento grande e lá ele consegue um contato valioso, que oferece a ele uma expansão do negócio para outra cidade. Ele então consegue aumentar bastante sua lucratividade.",
+                "Ele consegue aumentar bastante a lucratividade de sua empresa, porém acaba ficando mais tempo do que o planejado e acaba tendo que trancar mais um semestre na faculdade. Após um ano, ele se vê obrigado a retornar à faculdade para não ser jubilado e perder tudo o que já fez. Seu último semestre na faculdade acaba sendo bem desafiador, pois ele tem que conciliar o trabalho a distância e o medo de não conseguir concluir o curso a tempo de não ser jubilado. Após muito suor e lágrimas, o Lucas consegue seu tão sonhado diploma!",
+                "O Lucas dá o gás e consegue se formar e obter seu tão sonhado diploma. Porém ele perde a oportunidade de expandir o negócio e perde uma parceria valiosa. Ele continua com seu negócio com seus clientes regulares e um ano depois, graças ao seu diploma, ele consegue ganhar uma proposta muito boa de um cliente que o escolheu devido à sua ótima formação acadêmica. Ele então consegue expandir seu negócio para outras duas cidades.",
+                "O Lucas vai para o evento em São Paulo e consegue contatos valiosos. Um desses contatos fica feliz por Lucas estar na faculdade de Marketing e resolve fechar um grande contrato com ele, pois confia no seu conhecimento para fazer um ótimo trabalho. O Lucas consegue então pagar o seu cartão e ficar bem financeiramente até o fim da faculdade.",
+                "O Lucas continua com seus clientes fixos e mantendo o foco na faculdade até que consegue se formar com louvor. Após formado, ele é convidado para um evento grande e lá ele consegue um contato valioso, que oferece a ele uma expansão do negócio para outra cidade. Ele então consegue aumentar bastante sua lucratividade."
+            ]
         }
     ]; 
 
